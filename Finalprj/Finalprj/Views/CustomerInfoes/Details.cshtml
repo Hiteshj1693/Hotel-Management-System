@@ -1,0 +1,114 @@
+﻿@model Finalprj.Models.CustomerInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CustomerInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalMembers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalMembers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileUpload)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileUpload)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Message)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Message)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingInfo.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingInfo.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

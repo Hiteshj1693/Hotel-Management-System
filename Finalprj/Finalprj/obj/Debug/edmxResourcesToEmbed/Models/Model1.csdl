@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FinalprjModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BookingInfo">
+    <Key>
+      <PropertyRef Name="BookingID" />
+    </Key>
+    <Property Name="BookingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="RoomType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TotalMembers" Type="Int32" />
+    <Property Name="BookingDate" Type="DateTime" Precision="0" />
+    <Property Name="BookingTime" Type="Time" Precision="7" />
+    <Property Name="ArrivalDate" Type="DateTime" Precision="0" />
+    <Property Name="DepartureTime" Type="Time" Precision="7" />
+    <Property Name="EmailID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="FileUpload" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CustomerInfo" Relationship="Self.FK__CustomerI__Booki__286302EC" FromRole="BookingInfo" ToRole="CustomerInfo" />
+  </EntityType>
+  <EntityType Name="CustomerInfo">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BookingID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RoomType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TotalMembers" Type="Int32" />
+    <Property Name="BookingDate" Type="DateTime" Precision="0" />
+    <Property Name="BookingTime" Type="Time" Precision="7" />
+    <Property Name="ArrivalDate" Type="DateTime" Precision="0" />
+    <Property Name="DepartureTime" Type="Time" Precision="7" />
+    <Property Name="EmailID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="FileUpload" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BookingInfo" Relationship="Self.FK__CustomerI__Booki__286302EC" FromRole="CustomerInfo" ToRole="BookingInfo" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="RoomNumber" />
+    </Key>
+    <Property Name="RoomNumber" Type="Int32" Nullable="false" />
+    <Property Name="RoomType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AC_NonAC" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="Food" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CancellationCharges" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Rent" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="FileUpload" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="StaffID" />
+    </Key>
+    <Property Name="StaffID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmailID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmPassword" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="JoiningDate" Type="DateTime" Precision="0" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="confirmpassword" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__CustomerI__Booki__286302EC">
+    <End Role="BookingInfo" Type="Self.BookingInfo" Multiplicity="0..1" />
+    <End Role="CustomerInfo" Type="Self.CustomerInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BookingInfo">
+        <PropertyRef Name="BookingID" />
+      </Principal>
+      <Dependent Role="CustomerInfo">
+        <PropertyRef Name="BookingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FinalprjEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BookingInfo" EntityType="Self.BookingInfo" />
+    <EntitySet Name="CustomerInfo" EntityType="Self.CustomerInfo" />
+    <EntitySet Name="Room" EntityType="Self.Room" />
+    <EntitySet Name="Staff" EntityType="Self.Staff" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="FK__CustomerI__Booki__286302EC" Association="Self.FK__CustomerI__Booki__286302EC">
+      <End Role="BookingInfo" EntitySet="BookingInfo" />
+      <End Role="CustomerInfo" EntitySet="CustomerInfo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

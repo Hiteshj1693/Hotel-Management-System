@@ -1,0 +1,82 @@
+﻿@model Finalprj.Models.Room
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Room</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AC_NonAC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AC_NonAC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Food)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Food)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CancellationCharges)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CancellationCharges)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileUpload)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileUpload)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Message)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Message)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RoomNumber }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

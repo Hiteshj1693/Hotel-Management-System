@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FinalprjModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BookingInfo">
+    <Key>
+      <PropertyRef Name="BookingID" />
+    </Key>
+    <Property Name="BookingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" />
+    <Property Name="RoomType" Type="varchar" MaxLength="50" />
+    <Property Name="TotalMembers" Type="int" />
+    <Property Name="BookingDate" Type="date" />
+    <Property Name="BookingTime" Type="time" Precision="7" />
+    <Property Name="ArrivalDate" Type="date" />
+    <Property Name="DepartureTime" Type="time" Precision="7" />
+    <Property Name="EmailID" Type="nvarchar" MaxLength="255" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="15" />
+    <Property Name="FileUpload" Type="varbinary(max)" />
+    <Property Name="Message" Type="text" />
+  </EntityType>
+  <EntityType Name="CustomerInfo">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BookingID" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="RoomType" Type="nvarchar" MaxLength="50" />
+    <Property Name="TotalMembers" Type="int" />
+    <Property Name="BookingDate" Type="date" />
+    <Property Name="BookingTime" Type="time" Precision="7" />
+    <Property Name="ArrivalDate" Type="date" />
+    <Property Name="DepartureTime" Type="time" Precision="7" />
+    <Property Name="EmailID" Type="varchar" MaxLength="255" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="15" />
+    <Property Name="FileUpload" Type="varbinary(max)" />
+    <Property Name="Message" Type="text" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="RoomNumber" />
+    </Key>
+    <Property Name="RoomNumber" Type="int" Nullable="false" />
+    <Property Name="RoomType" Type="nvarchar" MaxLength="50" />
+    <Property Name="AC_NonAC" Type="nvarchar" MaxLength="5" />
+    <Property Name="Food" Type="nvarchar" MaxLength="50" />
+    <Property Name="CancellationCharges" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Rent" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="15" />
+    <Property Name="FileUpload" Type="varbinary(max)" />
+    <Property Name="Message" Type="text" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="StaffID" />
+    </Key>
+    <Property Name="StaffID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmailID" Type="nvarchar" MaxLength="255" />
+    <Property Name="Password" Type="nvarchar" MaxLength="255" />
+    <Property Name="ConfirmPassword" Type="nvarchar" MaxLength="255" />
+    <Property Name="JoiningDate" Type="date" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="15" />
+    <Property Name="Role" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" />
+    <Property Name="email" Type="nvarchar" MaxLength="255" />
+    <Property Name="password" Type="nvarchar" MaxLength="255" />
+    <Property Name="confirmpassword" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <Association Name="FK__CustomerI__Booki__286302EC">
+    <End Role="BookingInfo" Type="Self.BookingInfo" Multiplicity="0..1" />
+    <End Role="CustomerInfo" Type="Self.CustomerInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BookingInfo">
+        <PropertyRef Name="BookingID" />
+      </Principal>
+      <Dependent Role="CustomerInfo">
+        <PropertyRef Name="BookingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FinalprjModelStoreContainer">
+    <EntitySet Name="BookingInfo" EntityType="Self.BookingInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerInfo" EntityType="Self.CustomerInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__CustomerI__Booki__286302EC" Association="Self.FK__CustomerI__Booki__286302EC">
+      <End Role="BookingInfo" EntitySet="BookingInfo" />
+      <End Role="CustomerInfo" EntitySet="CustomerInfo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

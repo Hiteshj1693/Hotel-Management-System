@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FinalprjModelStoreContainer" CdmEntityContainer="FinalprjEntities1">
+    <EntitySetMapping Name="BookingInfo">
+      <EntityTypeMapping TypeName="FinalprjModel.BookingInfo">
+        <MappingFragment StoreEntitySet="BookingInfo">
+          <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RoomType" ColumnName="RoomType" />
+          <ScalarProperty Name="TotalMembers" ColumnName="TotalMembers" />
+          <ScalarProperty Name="BookingDate" ColumnName="BookingDate" />
+          <ScalarProperty Name="BookingTime" ColumnName="BookingTime" />
+          <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+          <ScalarProperty Name="DepartureTime" ColumnName="DepartureTime" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="FileUpload" ColumnName="FileUpload" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerInfo">
+      <EntityTypeMapping TypeName="FinalprjModel.CustomerInfo">
+        <MappingFragment StoreEntitySet="CustomerInfo">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RoomType" ColumnName="RoomType" />
+          <ScalarProperty Name="TotalMembers" ColumnName="TotalMembers" />
+          <ScalarProperty Name="BookingDate" ColumnName="BookingDate" />
+          <ScalarProperty Name="BookingTime" ColumnName="BookingTime" />
+          <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+          <ScalarProperty Name="DepartureTime" ColumnName="DepartureTime" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="FileUpload" ColumnName="FileUpload" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Room">
+      <EntityTypeMapping TypeName="FinalprjModel.Room">
+        <MappingFragment StoreEntitySet="Room">
+          <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+          <ScalarProperty Name="RoomType" ColumnName="RoomType" />
+          <ScalarProperty Name="AC_NonAC" ColumnName="AC_NonAC" />
+          <ScalarProperty Name="Food" ColumnName="Food" />
+          <ScalarProperty Name="CancellationCharges" ColumnName="CancellationCharges" />
+          <ScalarProperty Name="Rent" ColumnName="Rent" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="FileUpload" ColumnName="FileUpload" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Staff">
+      <EntityTypeMapping TypeName="FinalprjModel.Staff">
+        <MappingFragment StoreEntitySet="Staff">
+          <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+          <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="FinalprjModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="confirmpassword" ColumnName="confirmpassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
